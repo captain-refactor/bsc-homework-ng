@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,10 @@ export class NotesClientService {
   }
 
   getNote(noteId: number): Observable<ApiNote> {
-    return this.http.get<ApiNote>(`${this.baseUrl}/notes/${noteId}`, {});
+    if (!noteId) {
+      return of();
+    }
+    return this.http.get<ApiNote>(`${this.baseUrl}/notes/${noteId}`);
   }
 
   removeNote(noteId: number): Observable<unknown> {
@@ -30,7 +33,7 @@ export class NotesClientService {
 
   updateNote(note: ApiUpdateNote): Observable<ApiNote> {
     const {id, ...body} = note;
-    return this.http.put<ApiNote>(`/notes/${id}`, body);
+    return this.http.put<ApiNote>(`${this.baseUrl}/notes/${id}`, body);
   }
 }
 
