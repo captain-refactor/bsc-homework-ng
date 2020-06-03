@@ -1,6 +1,9 @@
+@import '~@angular/flex-layout/mq';
+
 main {
-  display: flex;
-  //flex-direction: row;
-  //align-items: stretch;
-  margin: 3rem 5rem
+  margin: 1rem 1.5rem;
+
+  @include layout-bp(gt-md) {
+    margin: 3rem 5rem
+  }
 }
