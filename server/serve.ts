@@ -19,7 +19,7 @@ const start = async () => {
     return ctx.redirect(langs[0]);
   });
 
-  app.listen(8080);
+  app.listen(process.env.PORT || 8080);
 };
 
 start();
