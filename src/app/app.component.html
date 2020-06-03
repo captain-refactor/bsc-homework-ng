@@ -1,5 +1,10 @@
-<mat-toolbar color="primary" class="mat-elevation-z2">
-  <h1>Notes app</h1>
+<mat-toolbar color="primary" class="mat-elevation-z2" fxLayout="row" fxLayoutAlign="space-between center">
+  <h1 fxFlex="1 0" i18n>Notes app</h1>
+  <button mat-button [matMenuTriggerFor]="menu" i18n>Change language</button>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item href="/cs">Čeština</a>
+    <a mat-menu-item href="/en-US">English</a>
+  </mat-menu>
 </mat-toolbar>
 <main>
   <router-outlet></router-outlet>
