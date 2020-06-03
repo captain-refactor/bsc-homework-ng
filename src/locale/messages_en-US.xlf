@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en-US" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="905cb9ecc081389292c8a218216b2119126861c5" datatype="html">
+        <source>Notes app</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="60a3620e64219321c8b50da502a404e9cef901ef" datatype="html">
+        <source>Change language</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/app.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="5e26c19758acf2a501b01b2a54cc8aa746815368" datatype="html">
+        <source>Your notes</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/notes/notes.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2c8533cde7f6b74afcf4444047503d2e9d1752c0" datatype="html">
+        <source>Create note</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/notes/notes.component.html</context>
+          <context context-type="linenumber">5</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/new-note/new-note.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2d8394506105d08df10827912259ec0a9d384b84" datatype="html">
+        <source>Note detail: <x id="INTERPOLATION" equiv-text="{{note.title}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/note-detail/note-detail.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="fdf7cbdc140d0aab0f0b6c06065a0fd448ed6a2e" datatype="html">
+        <source>Title</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/note-detail/note-detail.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/new-note/new-note.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="9fb13da3d22d6216b8a5a9c63777c9c0c506c7eb" datatype="html">
+        <source>Update note</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/note-detail/note-detail.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="2886cba0d103cf5cf8e4727ba84066cdb133a78d" datatype="html">
+        <source>New note</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/notes/new-note/new-note.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

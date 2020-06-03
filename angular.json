@@ -5,6 +5,12 @@
   "projects": {
     "bsc-homework-ng": {
       "projectType": "application",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "cs": "src/locale/messages_cs.xlf"
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -35,6 +41,10 @@
           },
           "configurations": {
             "production": {
+              "localize": [
+                "cs",
+                "en-US"
+              ],
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
