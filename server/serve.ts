@@ -16,7 +16,7 @@ const start = async () => {
         return send(ctx, join(lang, 'index.html'), {root});
       }
     }
-    return ctx.redirect(langs[0]);
+    return ctx.redirect('en-US');
   });
 
   app.listen(process.env.PORT || 8080);
