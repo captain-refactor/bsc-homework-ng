@@ -1,6 +1,20 @@
-<div fxLayout="row" fxFlexAlign="stretch" class="full-width">
-  <app-notes-list fxFlex="30%"></app-notes-list>
-  <div fxFlex="70%">
+<div fxLayout="row" fxLayout.lt-lg="row wrap" fxLayoutGap.gt-md="3rem">
+  <div class="app-notes-list" fxFlex="100" fxFlex.gt-md="35">
+    <div fxLayout="row" fxLayoutAlign="space-between">
+      <h2 i18n>Your notes</h2>
+      <a mat-icon-button color="primary" title="Add note" i18n-title routerLink="new">
+        <mat-icon>add</mat-icon>
+      </a>
+    </div>
+    <div class="mat-elevation-z3">
+      <mat-list *ngIf="notesService.notesArray$ | async as notes">
+        <a mat-list-item [routerLink]="[note.id]" *ngFor="let note of notes">
+          {{note.title}}
+        </a>
+      </mat-list>
+    </div>
+  </div>
+  <div fxFlex="100" fxFlex.gt-md="65">
     <router-outlet></router-outlet>
   </div>
 </div>

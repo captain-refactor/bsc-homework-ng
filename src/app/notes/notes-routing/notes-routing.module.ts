@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
-import {NotesListComponent} from '../notes-list/notes-list.component';
 import {NoteDetailComponent} from '../note-detail/note-detail.component';
 import {NotesComponent} from '../notes/notes.component';
 import {NewNoteComponent} from '../new-note/new-note.component';
