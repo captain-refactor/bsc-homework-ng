@@ -1,3 +1,8 @@
-<div class="mat-elevation-z3">
-  <h3 i18n>Note detail:</h3>
+<div class="border mat-elevation-z3" *ngIf="note$|async as note" fxLayout="column">
+  <h3 i18n>Note detail: {{note.title}}</h3>
+  <mat-form-field>
+    <mat-label i18n>Title</mat-label>
+    <input [(ngModel)]="note.title" matInput>
+  </mat-form-field>
+  <button (click)="updateNote(note)" fxFlexAlign="end" mat-raised-button color="primary" i18n>Update note</button>
 </div>
