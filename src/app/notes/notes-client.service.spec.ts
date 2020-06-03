@@ -1,12 +1,15 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { NotesClientService } from './notes-client.service';
+import {NotesClientService} from './notes-client.service';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('NotesClientService', () => {
   let service: NotesClientService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientModule]
+    });
     service = TestBed.inject(NotesClientService);
   });
 
