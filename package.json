@@ -6,7 +6,7 @@
     "start": "cd server && ts-node serve.ts",
     "serve": "ng serve",
     "build": "ng build --prod",
-    "test": "ng test",
+    "test": "ng test --watch=false",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "xi18n": "ng xi18n --output-path src/locale --out-file messages_en-US.xlf"
