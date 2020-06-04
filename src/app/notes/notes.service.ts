@@ -1,20 +1,22 @@
 import {Injectable} from '@angular/core';
 import {ApiNewNote, ApiNote, NotesClientService} from './notes-client.service';
-import {BehaviorSubject, merge, Observable} from 'rxjs';
-import {filter, map, pluck, shareReplay, tap} from 'rxjs/operators';
+import {merge, Observable, Subject} from 'rxjs';
+import {filter, map, pluck, scan, shareReplay, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NotesService {
 
-  // this subject holds a state of notes
-  private notesSubject = new BehaviorSubject<NotesMap>({});
+  private changeNotesSubject = new Subject<NotesMap>();
 
   notes$: Observable<NotesMap> = merge(
-    this.fetchNotesOnSubscribe(),
-    this.notesSubject,
-  ).pipe(shareReplay(1));
+    this.client.getNotes().pipe(map(toNotesMap)),
+    this.changeNotesSubject,
+  ).pipe(
+    scan<NotesMap>((notes, update) => Object.assign(notes, update), {}),
+    shareReplay(1)
+  );
 
   notesArray$: Observable<ApiNote[]> = this.notes$.pipe(map(toNotesArray));
 
@@ -39,9 +41,7 @@ export class NotesService {
     return this.client.updateNote(note)
       .pipe(
         tap(() => {
-          const notes = this.notesSubject.getValue();
-          notes[note.id] = note;
-          this.notesSubject.next(notes);
+          this.changeNotesSubject.next({[note.id]: note});
         })
       );
   }
@@ -49,20 +49,8 @@ export class NotesService {
   createNote(note: ApiNewNote) {
     return this.client.createNote(note)
       .pipe(tap((newNote) => {
-        const notes = this.notesSubject.getValue();
-        notes[newNote.id] = newNote;
-        this.notesSubject.next(notes);
+        this.changeNotesSubject.next({[newNote.id]: newNote});
       }));
-  }
-
-  // instead of init method, this observable downloads notes on subscribe
-  private fetchNotesOnSubscribe(): Observable<any> {
-    return new Observable(subscriber => {
-      this.client.getNotes()
-        .pipe(map(toNotesMap))
-        .subscribe(notes => this.notesSubject.next(notes));
-      subscriber.complete();
-    });
   }
 }
 
